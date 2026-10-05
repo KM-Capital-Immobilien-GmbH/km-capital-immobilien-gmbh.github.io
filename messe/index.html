@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>K&amp;M Immobiliengruppe – Schön, Sie kennenzulernen</title>
 <meta name="description" content="Kontakt speichern, Immobilie bewerten lassen oder Projekte entdecken – K&amp;M Immobiliengruppe.">
-<meta name="theme-color" content="#E9DFD2">
+<meta name="theme-color" content="#232324">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -103 456 456'%3E%3Crect x='-30' y='-103' width='456' height='456' rx='90' fill='%23E9DFD2'/%3E%3Cg fill='%23232324'%3E%3Cpath d='M39.03 0H0v250h39.03z'/%3E%3Cpath d='M103.41 104.33 84.37 146.05l49.02 100.97h40.96'/%3E%3Cpath d='M150.22 0l114.85 225.8 12.42-55.62L190.45 0'/%3E%3Cpath d='M357.23 0l-79.73 170.18-12.42 55.62 92.15-192.45v213.67H396V0'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preload" href="../fonts/switzer-500.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -21,12 +21,14 @@
     --sand: #D3C1AA;
     --beige: #E9DFD2;
     --paper: #FCFBFB;
-    --line: rgba(35, 35, 36, .09);
-    --radius: 18px;
-    --shadow: 0 1px 0 rgba(35, 35, 36, .04), 0 10px 28px -14px rgba(35, 35, 36, .22);
+    --soft: #f3eee8;
+    --line: rgba(35, 35, 36, .08);
+    --radius: 22px;
+    --shadow: 0 1px 0 rgba(35, 35, 36, .04), 0 14px 34px -18px rgba(35, 35, 36, .28);
+    --ease: cubic-bezier(.2, .7, .2, 1);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; background: var(--beige); }
   body {
     min-height: 100vh;
     min-height: 100svh;
@@ -34,199 +36,250 @@
     color: var(--ink);
     font-family: "Switzer", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    display: flex;
-    justify-content: center;
-    padding: max(32px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+    display: flex; justify-content: center;
+    padding: 0 16px max(28px, env(safe-area-inset-bottom));
   }
-  main { width: 100%; max-width: 440px; display: flex; flex-direction: column; }
+  main { width: 100%; max-width: 460px; display: flex; flex-direction: column; }
   a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
   a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   svg { display: block; }
 
-  /* Kopf */
-  header { text-align: center; padding: 20px 0 30px; }
+  /* ---------- Kopfbereich (dunkel, wie Aufsteller) ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    margin: 0 -16px;
+    padding: max(34px, calc(env(safe-area-inset-top) + 22px)) 24px 30px;
+    border-radius: 0 0 32px 32px;
+    background:
+      radial-gradient(120% 70% at 50% -10%, rgba(211, 193, 170, .22), transparent 62%),
+      radial-gradient(80% 50% at 100% 100%, rgba(211, 193, 170, .08), transparent 70%),
+      var(--ink);
+    color: #fff; text-align: center;
+  }
   .logo-tile {
-    width: 156px; margin: 0 auto 24px; padding: 12px;
-    background: #fff; border-radius: 14px; box-shadow: var(--shadow);
+    width: 150px; margin: 0 auto 26px; padding: 12px;
+    background: #fff; border-radius: 16px;
+    box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .55);
   }
   .logo-tile img { display: block; width: 100%; height: auto; }
-  .kicker { font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
-  h1 { margin-top: 12px; font-size: 27px; font-weight: 500; letter-spacing: -.02em; line-height: 1.15; text-wrap: balance; }
-  .lead { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--muted); text-wrap: balance; }
-  .trust { margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .kicker { font-size: 11.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--sand); }
+  h1 { margin-top: 12px; font-size: clamp(28px, 8.4vw, 34px); font-weight: 500; letter-spacing: -.025em; line-height: 1.08; text-wrap: balance; }
+  .lead { margin: 12px auto 0; max-width: 34ch; font-size: 14.5px; line-height: 1.5; color: rgba(233, 223, 210, .72); text-wrap: balance; }
+  .trust { margin-top: 22px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
   .chip {
     display: inline-flex; align-items: center; gap: 6px;
-    padding: 6px 11px; border-radius: 999px;
-    background: rgba(252, 251, 251, .65); border: 1px solid var(--line);
-    font-size: 12.5px; font-weight: 500; color: var(--ink-2); white-space: nowrap;
+    padding: 7px 10px; border-radius: 999px;
+    background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1);
+    font-size: 12px; font-weight: 500; color: var(--beige); white-space: nowrap;
   }
-  .chip svg { width: 13px; height: 13px; color: #b8975f; }
+  .chip b { font-weight: 600; color: #fff; margin-right: -2px; }
+  .chip svg { width: 13px; height: 13px; color: var(--sand); }
 
   .section-label {
-    margin: 30px 4px 10px;
-    font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2);
+    display: flex; align-items: center; gap: 10px;
+    margin: 34px 4px 12px;
+    font-size: 11.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2);
   }
+  .section-label::after { content: ""; flex: 1; height: 1px; background: rgba(35, 35, 36, .12); }
 
-  /* Ansprechpartner */
-  .people { display: grid; gap: 12px; }
-  .person { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; }
-  .person-head { display: flex; align-items: center; gap: 14px; }
-  .person-head img { width: 60px; height: 60px; border-radius: 14px; object-fit: cover; flex: none; background: var(--sand); }
-  .name { font-size: 17px; font-weight: 500; }
-  .org { margin-top: 2px; font-size: 12.5px; color: var(--muted); }
+  /* ---------- Ansprechpartner ---------- */
+  .people { display: grid; gap: 16px; }
+  .person { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .photo { position: relative; aspect-ratio: 16 / 11; background: var(--sand); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(35, 35, 36, 0) 48%, rgba(35, 35, 36, .55) 74%, rgba(35, 35, 36, .9) 100%);
+  }
+  .photo-text { position: absolute; left: 18px; right: 18px; bottom: 15px; z-index: 1; color: #fff; }
+  .name { font-size: 23px; font-weight: 600; letter-spacing: -.015em; line-height: 1.1; }
+  .org { margin-top: 4px; font-size: 13px; color: rgba(233, 223, 210, .9); }
+  .person-body { padding: 14px; }
 
   .btn {
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    min-height: 46px; padding: 0 12px; border-radius: 12px;
+    min-height: 48px; padding: 0 12px; border-radius: 14px;
     font-size: 14.5px; font-weight: 500;
-    transition: transform .15s ease, background-color .2s ease;
+    transition: transform .15s var(--ease), background-color .2s ease, box-shadow .2s ease;
   }
   .btn svg { width: 19px; height: 19px; flex: none; }
-  .btn.primary { margin-top: 14px; background: var(--ink); color: var(--paper); }
+  .btn.primary {
+    background: var(--ink); color: var(--paper);
+    box-shadow: 0 10px 22px -12px rgba(35, 35, 36, .7);
+  }
   .actions { margin-top: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .actions .btn { background: #f3eee8; color: var(--ink); font-size: 13.5px; gap: 6px; padding: 0 6px; }
-  .btn.web { margin-top: 8px; background: #f3eee8; color: var(--ink); font-size: 13.5px; }
+  .actions .btn, .btn.web { background: var(--soft); color: var(--ink); font-size: 13.5px; gap: 6px; padding: 0 6px; }
+  .btn.web { margin-top: 8px; }
   .btn:active { transform: scale(.97); }
 
-  /* Social Media */
-  .social { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .social .btn { flex-direction: column; gap: 6px; min-height: 76px; background: var(--paper); box-shadow: var(--shadow); border-radius: 14px; font-size: 13px; }
-  .social .btn svg { width: 22px; height: 22px; }
-
-  /* Anliegen */
-  .list { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-  .row { position: relative; display: flex; align-items: center; gap: 14px; padding: 15px 16px; transition: background-color .2s ease; }
-  .row + .row::before { content: ""; position: absolute; top: 0; left: 74px; right: 16px; border-top: 1px solid var(--line); }
-  .icon {
-    width: 44px; height: 44px; flex: none;
-    display: grid; place-items: center;
-    border-radius: 12px; background: var(--ink); color: var(--sand);
+  /* ---------- Anliegen (Kacheln) ---------- */
+  .bento { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tile {
+    position: relative;
+    display: flex; flex-direction: column; gap: 14px;
+    padding: 16px; border-radius: var(--radius);
+    background: var(--paper); box-shadow: var(--shadow);
+    transition: transform .2s var(--ease), box-shadow .2s ease;
   }
-  .icon svg { width: 22px; height: 22px; }
-  .row .text { flex: 1; min-width: 0; }
-  .row .label { display: block; font-size: 15.5px; font-weight: 500; }
-  .row .sub { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
-  .arrow { width: 18px; height: 18px; flex: none; color: var(--muted); transition: transform .2s ease, color .2s ease; }
+  .tile .icon {
+    width: 44px; height: 44px; display: grid; place-items: center;
+    border-radius: 13px; background: var(--ink); color: var(--sand);
+  }
+  .tile .icon svg { width: 22px; height: 22px; }
+  .tile .label { display: block; font-size: 15.5px; font-weight: 500; line-height: 1.25; }
+  .tile .sub { display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+  .tile .arrow { position: absolute; top: 16px; right: 16px; width: 18px; height: 18px; color: var(--muted); transition: transform .2s var(--ease), color .2s ease; }
+  /* Hauptaktion: Bewertung, über die volle Breite und dunkel */
+  .tile.feature {
+    grid-column: 1 / -1; flex-direction: row; align-items: center;
+    padding: 18px; background: var(--ink); color: #fff;
+    background-image: radial-gradient(90% 120% at 100% 0%, rgba(211, 193, 170, .2), transparent 60%);
+  }
+  .tile.feature .icon { width: 52px; height: 52px; flex: none; background: var(--sand); color: var(--ink); border-radius: 15px; }
+  .tile.feature .icon svg { width: 25px; height: 25px; }
+  .tile.feature .text { flex: 1; min-width: 0; padding-right: 22px; }
+  .tile.feature .label { font-size: 17px; }
+  .tile.feature .sub { color: rgba(233, 223, 210, .75); }
+  .tile.feature .arrow { top: 50%; margin-top: -9px; color: var(--sand); }
+
+  /* ---------- Social Media ---------- */
+  .social { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .social .btn {
+    flex-direction: column; gap: 7px; min-height: 82px;
+    background: var(--paper); box-shadow: var(--shadow); border-radius: 18px; font-size: 13px;
+  }
+  .social .btn svg { width: 23px; height: 23px; }
 
   @media (hover: hover) {
-    .row:hover { background: #f6f3ef; }
-    .row:hover .arrow { transform: translate(2px, -2px); color: var(--ink); }
     .btn.primary:hover { background: #34343a; }
     .actions .btn:hover, .btn.web:hover { background: #ece5dc; }
-    .social .btn:hover { background: #f6f3ef; }
+    .tile:hover, .social .btn:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(35, 35, 36, .04), 0 20px 38px -18px rgba(35, 35, 36, .36); }
+    .tile:hover .arrow { transform: translate(2px, -2px); }
+    .tile:not(.feature):hover .arrow { color: var(--ink); }
   }
-  .row:active { background: #f1ece6; }
+  .tile:active { transform: scale(.98); }
 
-  footer { margin-top: auto; padding-top: 40px; text-align: center; font-size: 12px; color: var(--muted); }
+  footer { margin-top: auto; padding-top: 44px; text-align: center; font-size: 12px; color: var(--muted); }
   footer nav { margin-top: 6px; display: flex; justify-content: center; gap: 16px; }
   footer a:hover { color: var(--ink); }
 
-  .reveal { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 70ms); }
-  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+  @media (min-width: 520px) {
+    body { padding-top: 24px; }
+    .hero { margin: 0; border-radius: 32px; }
+  }
+
+  /* sanftes Einblenden beim Scrollen (nur mit JavaScript, sonst sofort sichtbar) */
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--i, 0) * 60ms); }
+  .js .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
-    .reveal { animation: none; }
-    .row, .btn, .arrow { transition: none; }
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .tile, .arrow { transition: none; }
   }
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <main>
-  <header class="reveal">
-    <div class="logo-tile"><img src="../logo-immobiliengruppe-weiss.png" alt="K&amp;M Immobiliengruppe" width="393" height="190"></div>
-    <p class="kicker">Schön, Sie kennenzulernen</p>
-    <h1>Lassen Sie uns über Ihre Immobilie sprechen.</h1>
-    <p class="lead">K&amp;M Immobiliengruppe – Neubau, Bestand, Projektentwicklung und Immobilienbewertung.</p>
-    <div class="trust">
-      <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg>4,9 bei Google</span>
-      <span class="chip">500+ Kunden</span>
-      <span class="chip">125+ Projekte</span>
+  <header class="hero">
+    <div class="logo-tile reveal"><img src="../logo-immobiliengruppe-weiss.png" alt="K&amp;M Immobiliengruppe" width="393" height="190"></div>
+    <p class="kicker reveal" style="--i:1">Schön, Sie kennenzulernen</p>
+    <h1 class="reveal" style="--i:2">Lassen Sie uns über Ihre Immobilie sprechen.</h1>
+    <p class="lead reveal" style="--i:3">K&amp;M Immobiliengruppe – Neubau, Bestand, Projektentwicklung und Immobilienbewertung.</p>
+    <div class="trust reveal" style="--i:4">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg><b>4,9</b> bei Google</span>
+      <span class="chip"><b>500+</b> Kunden</span>
+      <span class="chip"><b>125+</b> Projekte</span>
     </div>
   </header>
 
-  <h2 class="section-label reveal" style="--i:1">Ihre Ansprechpartner</h2>
+  <h2 class="section-label reveal">Ihre Ansprechpartner</h2>
   <div class="people">
-    <article class="person reveal" style="--i:2">
-      <div class="person-head">
-        <img src="ivan-mioc.jpg" alt="Ivan Mioč" width="60" height="60">
-        <div><div class="name">Ivan Mioč</div><div class="org">Geschäftsführer · K&amp;M Immobiliengruppe</div></div>
+    <article class="person reveal">
+      <div class="photo">
+        <img src="ivan-mioc-banner.jpg" alt="Ivan Mioč" width="960" height="660">
+        <div class="photo-text"><div class="name">Ivan Mioč</div><div class="org">Geschäftsführer · K&amp;M Immobiliengruppe</div></div>
       </div>
-      <a class="btn primary" href="ivan-mioc.vcf">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c.8-3.6 3.4-5.6 6.5-5.6s5.7 2 6.5 5.6"/><path d="M19 8v6M16 11h6"/></svg>
-        Kontakt speichern
-      </a>
-      <div class="actions">
-        <a class="btn" href="https://wa.me/491782040756?text=Hallo%20Herr%20Mio%C4%8D%2C%20wir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.8l1.1-3.9A8.6 8.6 0 1 1 8.4 19z"/><path d="M9.2 8.6c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.1.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.6-.6.8-.6.3-1.5.4-2.6 0a8.3 8.3 0 0 1-4.6-4.6c-.4-1.1-.3-2 0-2.6z" fill="currentColor" stroke="none"/></svg>
-          WhatsApp
+      <div class="person-body">
+        <a class="btn primary" href="ivan-mioc.vcf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c.8-3.6 3.4-5.6 6.5-5.6s5.7 2 6.5 5.6"/><path d="M19 8v6M16 11h6"/></svg>
+          Kontakt speichern
         </a>
-        <a class="btn" href="tel:+491782040756">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.6 3.5h3.1l1.6 4.1-2.1 1.3a11.5 11.5 0 0 0 5.4 5.4l1.3-2.1 4.1 1.6v3.1a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 3.5 5.6a2 2 0 0 1 2.1-2.1z"/></svg>
-          Anrufen
-        </a>
-        <a class="btn" href="mailto:im@km-capital.de?subject=Kontakt%20von%20der%20Messe&amp;body=Hallo%20Herr%20Mio%C4%8D%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%0A%0A">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7.2 8.4 6 8.4-6"/></svg>
-          E-Mail
+        <div class="actions">
+          <a class="btn" href="https://wa.me/491782040756?text=Hallo%20Herr%20Mio%C4%8D%2C%20wir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.8l1.1-3.9A8.6 8.6 0 1 1 8.4 19z"/><path d="M9.2 8.6c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.1.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.6-.6.8-.6.3-1.5.4-2.6 0a8.3 8.3 0 0 1-4.6-4.6c-.4-1.1-.3-2 0-2.6z" fill="currentColor" stroke="none"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn" href="tel:+491782040756">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.6 3.5h3.1l1.6 4.1-2.1 1.3a11.5 11.5 0 0 0 5.4 5.4l1.3-2.1 4.1 1.6v3.1a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 3.5 5.6a2 2 0 0 1 2.1-2.1z"/></svg>
+            Anrufen
+          </a>
+          <a class="btn" href="mailto:im@km-capital.de?subject=Kontakt%20von%20der%20Messe&amp;body=Hallo%20Herr%20Mio%C4%8D%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%0A%0A">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7.2 8.4 6 8.4-6"/></svg>
+            E-Mail
+          </a>
+        </div>
+        <a class="btn web" href="https://ivan-mioc.de">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+          Persönliche Website: ivan-mioc.de
         </a>
       </div>
-      <a class="btn web" href="https://ivan-mioc.de">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
-        Persönliche Website: ivan-mioc.de
-      </a>
     </article>
 
-    <article class="person reveal" style="--i:3">
-      <div class="person-head">
-        <img src="marko-kloiber.jpg" alt="Marko Kloiber" width="60" height="60">
-        <div><div class="name">Marko Kloiber</div><div class="org">Geschäftsführer · K&amp;M Immobiliengruppe</div></div>
+    <article class="person reveal">
+      <div class="photo">
+        <img src="marko-kloiber-banner.jpg" alt="Marko Kloiber" width="960" height="660">
+        <div class="photo-text"><div class="name">Marko Kloiber</div><div class="org">Geschäftsführer · K&amp;M Immobiliengruppe</div></div>
       </div>
-      <a class="btn primary" href="marko-kloiber.vcf">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c.8-3.6 3.4-5.6 6.5-5.6s5.7 2 6.5 5.6"/><path d="M19 8v6M16 11h6"/></svg>
-        Kontakt speichern
-      </a>
-      <div class="actions">
-        <a class="btn" href="https://wa.me/491729122633?text=Hallo%20Herr%20Kloiber%2C%20wir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.8l1.1-3.9A8.6 8.6 0 1 1 8.4 19z"/><path d="M9.2 8.6c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.1.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.6-.6.8-.6.3-1.5.4-2.6 0a8.3 8.3 0 0 1-4.6-4.6c-.4-1.1-.3-2 0-2.6z" fill="currentColor" stroke="none"/></svg>
-          WhatsApp
+      <div class="person-body">
+        <a class="btn primary" href="marko-kloiber.vcf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c.8-3.6 3.4-5.6 6.5-5.6s5.7 2 6.5 5.6"/><path d="M19 8v6M16 11h6"/></svg>
+          Kontakt speichern
         </a>
-        <a class="btn" href="tel:+491729122633">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.6 3.5h3.1l1.6 4.1-2.1 1.3a11.5 11.5 0 0 0 5.4 5.4l1.3-2.1 4.1 1.6v3.1a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 3.5 5.6a2 2 0 0 1 2.1-2.1z"/></svg>
-          Anrufen
-        </a>
-        <a class="btn" href="mailto:mk@km-capital.de?subject=Kontakt%20von%20der%20Messe&amp;body=Hallo%20Herr%20Kloiber%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%0A%0A">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7.2 8.4 6 8.4-6"/></svg>
-          E-Mail
-        </a>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/491729122633?text=Hallo%20Herr%20Kloiber%2C%20wir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.8l1.1-3.9A8.6 8.6 0 1 1 8.4 19z"/><path d="M9.2 8.6c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.1.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.6-.6.8-.6.3-1.5.4-2.6 0a8.3 8.3 0 0 1-4.6-4.6c-.4-1.1-.3-2 0-2.6z" fill="currentColor" stroke="none"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn" href="tel:+491729122633">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.6 3.5h3.1l1.6 4.1-2.1 1.3a11.5 11.5 0 0 0 5.4 5.4l1.3-2.1 4.1 1.6v3.1a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 3.5 5.6a2 2 0 0 1 2.1-2.1z"/></svg>
+            Anrufen
+          </a>
+          <a class="btn" href="mailto:mk@km-capital.de?subject=Kontakt%20von%20der%20Messe&amp;body=Hallo%20Herr%20Kloiber%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%0A%0A">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7.2 8.4 6 8.4-6"/></svg>
+            E-Mail
+          </a>
+        </div>
       </div>
     </article>
   </div>
 
-  <h2 class="section-label reveal" style="--i:4">Wie können wir helfen?</h2>
-  <div class="list reveal" style="--i:5">
-    <a class="row" href="mailto:im@km-capital.de,mk@km-capital.de?subject=Messe%3A%20Ersteinsch%C3%A4tzung%20meiner%20Immobilie&amp;body=Hallo%20Herr%20Mio%C4%8D%2C%20hallo%20Herr%20Kloiber%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20unverbindliche%20Ersteinsch%C3%A4tzung%20meiner%20Immobilie.%0A%0AObjektart%3A%0AOrt%20%2F%20PLZ%3A%0AWohnfl%C3%A4che%20%28ca.%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+  <h2 class="section-label reveal">Wie können wir helfen?</h2>
+  <div class="bento">
+    <a class="tile feature reveal" href="mailto:im@km-capital.de,mk@km-capital.de?subject=Messe%3A%20Ersteinsch%C3%A4tzung%20meiner%20Immobilie&amp;body=Hallo%20Herr%20Mio%C4%8D%2C%20hallo%20Herr%20Kloiber%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20unverbindliche%20Ersteinsch%C3%A4tzung%20meiner%20Immobilie.%0A%0AObjektart%3A%0AOrt%20%2F%20PLZ%3A%0AWohnfl%C3%A4che%20%28ca.%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
       <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5"/><path d="M5.5 9v10.5h13V9"/><path d="m9.2 14.2 2 2 3.8-4"/></svg></span>
       <span class="text"><span class="label">Immobilie bewerten lassen</span><span class="sub">Unverbindliche Ersteinschätzung anfragen</span></span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
     </a>
-    <a class="row" href="mailto:im@km-capital.de,mk@km-capital.de?subject=Messe%3A%20Verkauf%20meiner%20Immobilie&amp;body=Hallo%20Herr%20Mio%C4%8D%2C%20hallo%20Herr%20Kloiber%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20Ich%20%C3%BCberlege%2C%20meine%20Immobilie%20zu%20verkaufen%2C%20und%20w%C3%BCrde%20mich%20%C3%BCber%20ein%20Gespr%C3%A4ch%20freuen.%0A%0AObjektart%3A%0AOrt%20%2F%20PLZ%3A%0AWann%20passt%20ein%20R%C3%BCckruf%3F%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+    <a class="tile reveal" style="--i:1" href="mailto:im@km-capital.de,mk@km-capital.de?subject=Messe%3A%20Verkauf%20meiner%20Immobilie&amp;body=Hallo%20Herr%20Mio%C4%8D%2C%20hallo%20Herr%20Kloiber%2C%0A%0Awir%20haben%20uns%20auf%20der%20Messe%20kennengelernt.%20Ich%20%C3%BCberlege%2C%20meine%20Immobilie%20zu%20verkaufen%2C%20und%20w%C3%BCrde%20mich%20%C3%BCber%20ein%20Gespr%C3%A4ch%20freuen.%0A%0AObjektart%3A%0AOrt%20%2F%20PLZ%3A%0AWann%20passt%20ein%20R%C3%BCckruf%3F%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
       <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16.5 6.5 19 9M14.3 8.7l2 2"/></svg></span>
       <span class="text"><span class="label">Immobilie verkaufen</span><span class="sub">Persönliche Beratung bis zum Abschluss</span></span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
     </a>
-    <a class="row" href="https://www.km-capital.de/#projekte">
+    <a class="tile reveal" style="--i:2" href="https://www.km-capital.de/#projekte">
       <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="9" height="17" rx="1"/><path d="M14 9.5h5v11h-5M8 7.5h3M8 11h3M8 14.5h3M3 20.5h18"/></svg></span>
       <span class="text"><span class="label">Neubau &amp; Projekte entdecken</span><span class="sub">Unsere Projekte auf km-capital.de</span></span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
     </a>
   </div>
 
-  <h2 class="section-label reveal" style="--i:6">Folgen Sie uns</h2>
-  <div class="social reveal" style="--i:7">
-    <a class="btn" href="https://www.instagram.com/kmcapitalimmobilien/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
-    <a class="btn" href="https://www.facebook.com/kundmcapitalimmobiliengmbh/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 21.5v-8h2.7l.4-3.2h-3.1V8.3c0-.9.3-1.6 1.6-1.6h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.6v3.2h2.7v8z"/></svg>Facebook</a>
-    <a class="btn" href="https://www.linkedin.com/company/k&amp;m-capital-immobilien-gmbh"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2.3"/><rect x="3" y="8.6" width="4" height="12.4" rx=".4"/><path d="M9.6 8.6h3.75v1.7h.05c.52-.98 1.8-2.02 3.7-2.02 3.96 0 4.7 2.6 4.7 6V21h-3.9v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.28 1.55-2.28 3.15V21H9.6z"/></svg>LinkedIn</a>
+  <h2 class="section-label reveal">Folgen Sie uns</h2>
+  <div class="social">
+    <a class="btn reveal" href="https://www.instagram.com/kmcapitalimmobilien/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+    <a class="btn reveal" style="--i:1" href="https://www.facebook.com/kundmcapitalimmobiliengmbh/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 21.5v-8h2.7l.4-3.2h-3.1V8.3c0-.9.3-1.6 1.6-1.6h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.6v3.2h2.7v8z"/></svg>Facebook</a>
+    <a class="btn reveal" style="--i:2" href="https://www.linkedin.com/company/k&amp;m-capital-immobilien-gmbh"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2.3"/><rect x="3" y="8.6" width="4" height="12.4" rx=".4"/><path d="M9.6 8.6h3.75v1.7h.05c.52-.98 1.8-2.02 3.7-2.02 3.96 0 4.7 2.6 4.7 6V21h-3.9v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.28 1.55-2.28 3.15V21H9.6z"/></svg>LinkedIn</a>
   </div>
 
-  <footer class="reveal" style="--i:8">
+  <footer>
     <div>K&amp;M Immobiliengruppe</div>
     <nav>
       <a href="https://www.km-capital.de/impressum">Impressum</a>
@@ -234,5 +287,16 @@
     </nav>
   </footer>
 </main>
+<script>
+  // Abschnitte beim Scrollen sanft einblenden
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
