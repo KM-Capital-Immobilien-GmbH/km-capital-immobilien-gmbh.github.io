@@ -65,6 +65,13 @@
   .tile.wide .top { display: contents; }
   .tile.wide .text { order: 1; flex: 1; min-width: 0; }
   .tile.wide .arrow { order: 2; }
+  /* hervorgehobene Kachel (z. B. eigenes Instagram): dunkel, über die volle Breite */
+  .tile.feature { padding: 18px 16px; background: var(--ink); color: #fff; }
+  .tile.feature .icon { width: 50px; height: 50px; border-radius: 14px; background: var(--sand); color: var(--ink); }
+  .tile.feature .icon svg { width: 25px; height: 25px; }
+  .tile.feature .label { font-size: 17px; }
+  .tile.feature .sub { color: rgba(233, 223, 210, .78); }
+  .tile.feature .arrow { color: var(--sand); }
   .logo.lockup { width: 150px; height: auto; margin-bottom: 26px; }
   .tile .label { font-size: 16px; font-weight: 500; }
   .tile .sub { margin-top: 3px; font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
