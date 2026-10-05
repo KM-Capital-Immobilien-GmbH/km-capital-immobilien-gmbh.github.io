@@ -149,6 +149,11 @@
     background: var(--paper); box-shadow: var(--shadow); border-radius: 18px; font-size: 13px;
   }
   .social .btn svg { width: 23px; height: 23px; }
+  /* Variante mit zwei Kacheln und Kontoname (Einzelseite mit eigenem Instagram) */
+  .social.zwei { grid-template-columns: 1fr 1fr; }
+  .social .handle { margin-top: -3px; font-size: 11.5px; font-weight: 400; color: var(--muted); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .social.firma { margin-top: 10px; }
+  .section-label + .home { margin-top: 0; }
 
   /* ---------- Homepage ---------- */
   .home {
