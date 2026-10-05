@@ -2,10 +2,12 @@ BEGIN:VCARD
 VERSION:3.0
 N:Mioč;Ivan;;;
 FN:Ivan Mioč
-ORG:K&M Capital Immobilien GmbH
+ORG:K&M Immobiliengruppe
+TITLE:Geschäftsführer
 TEL;TYPE=CELL,VOICE:+49 178 2040756
 EMAIL;TYPE=INTERNET,WORK:im@km-capital.de
 URL:https://www.km-capital.de/
+URL:https://ivan-mioc.de/
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYH
  BwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2w
  BDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo

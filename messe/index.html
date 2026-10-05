@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>K&amp;M Capital Immobilien – Schön, Sie kennenzulernen</title>
-<meta name="description" content="Kontakt speichern, Immobilie bewerten lassen oder Projekte entdecken – K&amp;M Capital Immobilien GmbH.">
+<title>K&amp;M Immobiliengruppe – Schön, Sie kennenzulernen</title>
+<meta name="description" content="Kontakt speichern, Immobilie bewerten lassen oder Projekte entdecken – K&amp;M Immobiliengruppe.">
 <meta name="theme-color" content="#E9DFD2">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -103 456 456'%3E%3Crect x='-30' y='-103' width='456' height='456' rx='90' fill='%23E9DFD2'/%3E%3Cg fill='%23232324'%3E%3Cpath d='M39.03 0H0v250h39.03z'/%3E%3Cpath d='M103.41 104.33 84.37 146.05l49.02 100.97h40.96'/%3E%3Cpath d='M150.22 0l114.85 225.8 12.42-55.62L190.45 0'/%3E%3Cpath d='M357.23 0l-79.73 170.18-12.42 55.62 92.15-192.45v213.67H396V0'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preload" href="../fonts/switzer-500.woff2" as="font" type="font/woff2" crossorigin>
@@ -45,8 +45,11 @@
 
   /* Kopf */
   header { text-align: center; padding: 20px 0 30px; }
-  .logo { width: 64px; height: auto; margin: 0 auto 22px; color: var(--ink); }
-  .logo path, .logo-sm path { stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+  .logo-tile {
+    width: 156px; margin: 0 auto 24px; padding: 12px;
+    background: #fff; border-radius: 14px; box-shadow: var(--shadow);
+  }
+  .logo-tile img { display: block; width: 100%; height: auto; }
   .kicker { font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
   h1 { margin-top: 12px; font-size: 27px; font-weight: 500; letter-spacing: -.02em; line-height: 1.15; text-wrap: balance; }
   .lead { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--muted); text-wrap: balance; }
@@ -82,7 +85,13 @@
   .btn.primary { margin-top: 14px; background: var(--ink); color: var(--paper); }
   .actions { margin-top: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .actions .btn { background: #f3eee8; color: var(--ink); font-size: 13.5px; gap: 6px; padding: 0 6px; }
+  .btn.web { margin-top: 8px; background: #f3eee8; color: var(--ink); font-size: 13.5px; }
   .btn:active { transform: scale(.97); }
+
+  /* Social Media */
+  .social { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .social .btn { flex-direction: column; gap: 6px; min-height: 76px; background: var(--paper); box-shadow: var(--shadow); border-radius: 14px; font-size: 13px; }
+  .social .btn svg { width: 22px; height: 22px; }
 
   /* Anliegen */
   .list { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
@@ -103,7 +112,8 @@
     .row:hover { background: #f6f3ef; }
     .row:hover .arrow { transform: translate(2px, -2px); color: var(--ink); }
     .btn.primary:hover { background: #34343a; }
-    .actions .btn:hover { background: #ece5dc; }
+    .actions .btn:hover, .btn.web:hover { background: #ece5dc; }
+    .social .btn:hover { background: #f6f3ef; }
   }
   .row:active { background: #f1ece6; }
 
@@ -122,15 +132,10 @@
 <body>
 <main>
   <header class="reveal">
-    <svg class="logo" viewBox="0 0 396 250" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="K&amp;M Capital Logo">
-      <path d="M39.0327 0H0V250H39.0327V0Z"/>
-      <path d="M103.407 104.328L84.3716 146.046L133.391 247.021H174.346"/>
-      <path d="M150.223 0L265.071 225.8L277.495 170.176L190.451 0"/>
-      <path d="M357.225 0L277.495 170.176L265.071 225.8L357.225 33.3458V247.022H396V0"/>
-    </svg>
+    <div class="logo-tile"><img src="../logo-immobiliengruppe-weiss.png" alt="K&amp;M Immobiliengruppe" width="393" height="190"></div>
     <p class="kicker">Schön, Sie kennenzulernen</p>
     <h1>Lassen Sie uns über Ihre Immobilie sprechen.</h1>
-    <p class="lead">K&amp;M Capital Immobilien – Neubau, Bestand, Projektentwicklung und Immobilienbewertung.</p>
+    <p class="lead">K&amp;M Immobiliengruppe – Neubau, Bestand, Projektentwicklung und Immobilienbewertung.</p>
     <div class="trust">
       <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg>4,9 bei Google</span>
       <span class="chip">500+ Kunden</span>
@@ -143,7 +148,7 @@
     <article class="person reveal" style="--i:2">
       <div class="person-head">
         <img src="ivan-mioc.jpg" alt="Ivan Mioč" width="60" height="60">
-        <div><div class="name">Ivan Mioč</div><div class="org">K&amp;M Capital Immobilien GmbH</div></div>
+        <div><div class="name">Ivan Mioč</div><div class="org">Geschäftsführer · K&amp;M Immobiliengruppe</div></div>
       </div>
       <a class="btn primary" href="ivan-mioc.vcf">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c.8-3.6 3.4-5.6 6.5-5.6s5.7 2 6.5 5.6"/><path d="M19 8v6M16 11h6"/></svg>
@@ -163,12 +168,16 @@
           E-Mail
         </a>
       </div>
+      <a class="btn web" href="https://ivan-mioc.de">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        Persönliche Website: ivan-mioc.de
+      </a>
     </article>
 
     <article class="person reveal" style="--i:3">
       <div class="person-head">
         <img src="marko-kloiber.jpg" alt="Marko Kloiber" width="60" height="60">
-        <div><div class="name">Marko Kloiber</div><div class="org">K&amp;M Capital Immobilien GmbH</div></div>
+        <div><div class="name">Marko Kloiber</div><div class="org">Geschäftsführer · K&amp;M Immobiliengruppe</div></div>
       </div>
       <a class="btn primary" href="marko-kloiber.vcf">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c.8-3.6 3.4-5.6 6.5-5.6s5.7 2 6.5 5.6"/><path d="M19 8v6M16 11h6"/></svg>
@@ -208,15 +217,17 @@
       <span class="text"><span class="label">Neubau &amp; Projekte entdecken</span><span class="sub">Unsere Projekte auf km-capital.de</span></span>
       <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
     </a>
-    <a class="row" href="../">
-      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.05" fill="currentColor" stroke="none"/></svg></span>
-      <span class="text"><span class="label">Instagram &amp; LinkedIn</span><span class="sub">Folgen Sie uns für neue Projekte</span></span>
-      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
-    </a>
   </div>
 
-  <footer class="reveal" style="--i:6">
-    <div>K&amp;M Capital Immobilien GmbH</div>
+  <h2 class="section-label reveal" style="--i:6">Folgen Sie uns</h2>
+  <div class="social reveal" style="--i:7">
+    <a class="btn" href="https://www.instagram.com/kmcapitalimmobilien/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+    <a class="btn" href="https://www.facebook.com/kundmcapitalimmobiliengmbh/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 21.5v-8h2.7l.4-3.2h-3.1V8.3c0-.9.3-1.6 1.6-1.6h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.6v3.2h2.7v8z"/></svg>Facebook</a>
+    <a class="btn" href="https://www.linkedin.com/company/k&amp;m-capital-immobilien-gmbh"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2.3"/><rect x="3" y="8.6" width="4" height="12.4" rx=".4"/><path d="M9.6 8.6h3.75v1.7h.05c.52-.98 1.8-2.02 3.7-2.02 3.96 0 4.7 2.6 4.7 6V21h-3.9v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.28 1.55-2.28 3.15V21H9.6z"/></svg>LinkedIn</a>
+  </div>
+
+  <footer class="reveal" style="--i:8">
+    <div>K&amp;M Immobiliengruppe</div>
     <nav>
       <a href="https://www.km-capital.de/impressum">Impressum</a>
       <a href="https://www.km-capital.de/datenschutz">Datenschutz</a>

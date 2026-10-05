@@ -2,7 +2,8 @@ BEGIN:VCARD
 VERSION:3.0
 N:Kloiber;Marko;;;
 FN:Marko Kloiber
-ORG:K&M Capital Immobilien GmbH
+ORG:K&M Immobiliengruppe
+TITLE:Geschäftsführer
 TEL;TYPE=CELL,VOICE:+49 172 9122633
 EMAIL;TYPE=INTERNET,WORK:mk@km-capital.de
 URL:https://www.km-capital.de/
