@@ -46,7 +46,7 @@
   /* Kopf */
   header { text-align: center; padding: 28px 0 34px; }
   .logo { display: block; width: 78px; height: auto; margin: 0 auto 24px; color: var(--ink); }
-  .logo path, .lockup path, .avatar.company path { stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+  .logo path, .avatar.company path { stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
   h1 { font-size: 21px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; text-wrap: balance; }
   .tagline { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
 
@@ -65,7 +65,7 @@
   .tile.wide .top { display: contents; }
   .tile.wide .text { order: 1; flex: 1; min-width: 0; }
   .tile.wide .arrow { order: 2; }
-  .logo.lockup { width: 118px; margin-bottom: 26px; }
+  .logo.lockup { width: 150px; height: auto; margin-bottom: 26px; }
   .tile .label { font-size: 16px; font-weight: 500; }
   .tile .sub { margin-top: 3px; font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
 
@@ -145,13 +145,7 @@
 <body>
 <main>
   <header class="reveal">
-    <svg class="logo lockup" viewBox="-110 0 616 392" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="K&amp;M Immobiliengruppe">
-      <path d="M39.0327 0H0V250H39.0327V0Z"/>
-      <path d="M103.407 104.328L84.3716 146.046L133.391 247.021H174.346"/>
-      <path d="M150.223 0L265.071 225.8L277.495 170.176L190.451 0"/>
-      <path d="M357.225 0L277.495 170.176L265.071 225.8L357.225 33.3458V247.022H396V0"/>
-      <text x="198" y="373" text-anchor="middle" font-family="Switzer, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="71" textLength="613" lengthAdjust="spacing">Immobiliengruppe</text>
-    </svg>
+    <img class="logo lockup" src="../logo-immobiliengruppe.png" alt="K&amp;M Immobiliengruppe" width="150" height="72">
     <h1>Marko Kloiber</h1>
     <p class="tagline">Geschäftsführer · K&amp;M Immobiliengruppe</p>
   </header>
