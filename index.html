@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KM Capital Immobilien GmbH – Links</title>
+<meta name="description" content="Website, Instagram und LinkedIn der KM Capital Immobilien GmbH auf einen Blick.">
+<meta name="theme-color" content="#E9DFD2">
+<meta property="og:title" content="KM Capital Immobilien GmbH">
+<meta property="og:description" content="Website, Instagram und LinkedIn auf einen Blick.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -103 456 456'%3E%3Crect x='-30' y='-103' width='456' height='456' rx='90' fill='%23E9DFD2'/%3E%3Cg fill='%23232324'%3E%3Cpath d='M39.03 0H0v250h39.03z'/%3E%3Cpath d='M103.41 104.33 84.37 146.05l49.02 100.97h40.96'/%3E%3Cpath d='M150.22 0l114.85 225.8 12.42-55.62L190.45 0'/%3E%3Cpath d='M357.23 0l-79.73 170.18-12.42 55.62 92.15-192.45v213.67H396V0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="fonts/switzer-500.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Schrift lokal eingebunden – keine Anfragen an externe Server */
+  @font-face { font-family: "Switzer"; src: url("fonts/switzer-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Switzer"; src: url("fonts/switzer-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Switzer"; src: url("fonts/switzer-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+
+  :root {
+    --ink: #232324;
+    --ink-2: #4a4744;
+    --muted: #7a746d;
+    --sand: #D3C1AA;
+    --beige: #E9DFD2;
+    --paper: #FCFBFB;
+    --line: rgba(35, 35, 36, .09);
+    --radius: 18px;
+    --shadow: 0 1px 0 rgba(35, 35, 36, .04), 0 10px 28px -14px rgba(35, 35, 36, .22);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--beige);
+    color: var(--ink);
+    font-family: "Switzer", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+    padding: max(36px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+  }
+  main { width: 100%; max-width: 420px; display: flex; flex-direction: column; }
+  a { -webkit-tap-highlight-color: transparent; }
+
+  /* Kopf */
+  header { text-align: center; padding: 28px 0 34px; }
+  .logo { display: block; width: 78px; height: auto; margin: 0 auto 24px; color: var(--ink); }
+  .logo path, .avatar.company path { stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+  h1 { font-size: 21px; font-weight: 500; letter-spacing: -.01em; line-height: 1.25; text-wrap: balance; }
+  .tagline { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
+
+  /* Kacheln: Website + Instagram */
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tile {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+    padding: 18px 16px 17px;
+    background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow);
+    color: inherit; text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .tile .top { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; }
+  .tile .label { font-size: 16px; font-weight: 500; }
+  .tile .sub { margin-top: 3px; font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
+
+  .icon {
+    width: 44px; height: 44px; flex: none;
+    display: grid; place-items: center;
+    border-radius: 12px; background: var(--ink); color: var(--paper);
+  }
+  .icon svg { width: 22px; height: 22px; }
+
+  /* LinkedIn-Liste */
+  .section-label {
+    margin: 30px 4px 10px;
+    font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2);
+  }
+  .list { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .row {
+    position: relative;
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px;
+    color: inherit; text-decoration: none;
+    transition: background-color .2s ease;
+  }
+  .row + .row::before {
+    content: ""; position: absolute; top: 0; left: 74px; right: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .avatar {
+    position: relative; width: 44px; height: 44px; flex: none;
+    display: grid; place-items: center;
+    border-radius: 12px; background: var(--sand); color: var(--ink);
+    font-size: 14px; font-weight: 600; letter-spacing: .04em;
+  }
+  .avatar.company { background: var(--ink); color: var(--sand); }
+  .avatar.company > svg { width: 25px; height: auto; }
+  .badge {
+    position: absolute; right: -5px; bottom: -5px;
+    width: 20px; height: 20px;
+    display: grid; place-items: center;
+    border-radius: 6px; background: var(--ink); color: var(--paper);
+    box-shadow: 0 0 0 2px var(--paper);
+  }
+  .avatar.company .badge { background: var(--paper); color: var(--ink); box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--line); }
+  .badge svg { width: 11px; height: 11px; }
+  .row .text { flex: 1; min-width: 0; }
+  .row .label { font-size: 15.5px; font-weight: 500; }
+  .row .sub { margin-top: 2px; font-size: 12.5px; color: var(--muted); }
+
+  .arrow { width: 18px; height: 18px; flex: none; color: var(--muted); transition: transform .2s ease, color .2s ease; }
+
+  @media (hover: hover) {
+    .tile:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(35, 35, 36, .04), 0 16px 32px -14px rgba(35, 35, 36, .3); }
+    .row:hover { background: #f6f3ef; }
+    .tile:hover .arrow, .row:hover .arrow { transform: translate(2px, -2px); color: var(--ink); }
+  }
+  .tile:active { transform: scale(.98); }
+  .row:active { background: #f1ece6; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  footer {
+    margin-top: auto; padding-top: 40px;
+    text-align: center; font-size: 12px; color: var(--muted);
+  }
+  footer nav { margin-top: 6px; display: flex; justify-content: center; gap: 16px; }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  /* dezente Einblendung */
+  .reveal { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; }
+    .tile, .row, .arrow { transition: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="reveal">
+    <svg class="logo" viewBox="0 0 396 250" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KM Capital Logo">
+      <path d="M39.0327 0H0V250H39.0327V0Z"/>
+      <path d="M103.407 104.328L84.3716 146.046L133.391 247.021H174.346"/>
+      <path d="M150.223 0L265.071 225.8L277.495 170.176L190.451 0"/>
+      <path d="M357.225 0L277.495 170.176L265.071 225.8L357.225 33.3458V247.022H396V0"/>
+    </svg>
+    <h1>KM Capital Immobilien GmbH</h1>
+    <p class="tagline">Neubau · Bestand · Projektentwicklung</p>
+  </header>
+
+  <div class="tiles">
+    <a class="tile reveal" style="--i:1" href="https://www.km-capital.de/">
+      <div class="top">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        </span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+      </div>
+      <div>
+        <div class="label">Website</div>
+        <div class="sub">km-capital.de</div>
+      </div>
+    </a>
+    <a class="tile reveal" style="--i:2" href="https://www.instagram.com/kmcapitalimmobilien/">
+      <div class="top">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.05" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+      </div>
+      <div>
+        <div class="label">Instagram</div>
+        <div class="sub">@kmcapitalimmobilien</div>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="section-label reveal" style="--i:3">LinkedIn</h2>
+  <div class="list reveal" style="--i:4">
+    <a class="row" href="https://www.linkedin.com/company/k&amp;m-capital-immobilien-gmbh">
+      <span class="avatar company" aria-hidden="true">
+        <svg viewBox="0 0 396 250" fill="currentColor"><path d="M39.0327 0H0V250H39.0327V0Z"/><path d="M103.407 104.328L84.3716 146.046L133.391 247.021H174.346"/><path d="M150.223 0L265.071 225.8L277.495 170.176L190.451 0"/><path d="M357.225 0L277.495 170.176L265.071 225.8L357.225 33.3458V247.022H396V0"/></svg>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2.3"/><rect x="3" y="8.6" width="4" height="12.4" rx=".4"/><path d="M9.6 8.6h3.75v1.7h.05c.52-.98 1.8-2.02 3.7-2.02 3.96 0 4.7 2.6 4.7 6V21h-3.9v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.28 1.55-2.28 3.15V21H9.6z"/></svg></span>
+      </span>
+      <span class="text">
+        <span class="label" style="display:block">KM Capital Immobilien GmbH</span>
+        <span class="sub" style="display:block">Unternehmensseite</span>
+      </span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+    </a>
+    <a class="row" href="https://www.linkedin.com/in/ivan-mio%C4%8D-a3105241b/">
+      <span class="avatar" aria-hidden="true">IM
+        <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2.3"/><rect x="3" y="8.6" width="4" height="12.4" rx=".4"/><path d="M9.6 8.6h3.75v1.7h.05c.52-.98 1.8-2.02 3.7-2.02 3.96 0 4.7 2.6 4.7 6V21h-3.9v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.28 1.55-2.28 3.15V21H9.6z"/></svg></span>
+      </span>
+      <span class="text">
+        <span class="label" style="display:block">Ivan Mioč</span>
+        <span class="sub" style="display:block">LinkedIn-Profil</span>
+      </span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+    </a>
+    <a class="row" href="https://www.linkedin.com/in/marko-kloiber-572110126/">
+      <span class="avatar" aria-hidden="true">MK
+        <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2.3"/><rect x="3" y="8.6" width="4" height="12.4" rx=".4"/><path d="M9.6 8.6h3.75v1.7h.05c.52-.98 1.8-2.02 3.7-2.02 3.96 0 4.7 2.6 4.7 6V21h-3.9v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.28 1.55-2.28 3.15V21H9.6z"/></svg></span>
+      </span>
+      <span class="text">
+        <span class="label" style="display:block">Marko Kloiber</span>
+        <span class="sub" style="display:block">LinkedIn-Profil</span>
+      </span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>
+    </a>
+  </div>
+
+  <footer class="reveal" style="--i:5">
+    <div>KM Capital Immobilien GmbH</div>
+    <nav>
+      <a href="https://www.km-capital.de/impressum">Impressum</a>
+      <a href="https://www.km-capital.de/datenschutz">Datenschutz</a>
+    </nav>
+  </footer>
+</main>
+</body>
+</html>
